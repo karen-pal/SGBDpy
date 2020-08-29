@@ -1,13 +1,18 @@
+import sys
 import unittest
+
+sys.path.append("../")
+
+
 import schema
 import column
 
 
 class TestColumn(unittest.TestCase):
     def test_create_column(self):
-        column = column.Column("Nombre", "string(10)")
-        self.assertEqual(column.column_name, "nombre")
-        self.assertEqual(column.column_type, ("string", 10))
+        new_column = column.Column("Nombre", "string(10)")
+        self.assertEqual(new_column.column_name, "nombre")
+        self.assertEqual(new_column.column_type, ("string", 10))
 
 
 class TestSchema(unittest.TestCase):

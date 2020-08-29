@@ -1,4 +1,6 @@
 from error import InvalidSchema
+import os
+dirname = os.path.dirname(__file__)
 
 import schema
 class Table:
@@ -21,7 +23,7 @@ class Table:
             return schema.Schema(raw_schema)
 
     def new_file(self):
-        filename = "./data/"+ self.tablename + ".stol" #table in croatian
+        filename = dirname+ "/data/"+ self.tablename + ".stol" #table in croatian
         f = open(filename, "w")
         f.write(str(self.schema))
         f.close()
