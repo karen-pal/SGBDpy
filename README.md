@@ -1,5 +1,5 @@
 # SGDB..py?
-
+![placeholder_image.py](https://i.imgur.com/Tz35u9v.png)
 > WIP
 
 **,,el nuevo SGDB de preferencia""**
