@@ -4,13 +4,17 @@ import column
 
 class Schema:
     def __init__(self, columns):
-        self.raw = ''.join(str(elems) for elems in columns)
+        self.raw = "".join(str(elems) for elems in columns)
         self.columns = self.validated_columns(columns)
+
     def __str__(self):
         representation = ""
         for single_column in self.columns:
-            representation += single_column.column_name + " " + str(single_column.column_type) + ", "
+            representation += (
+                single_column.column_name + " " + str(single_column.column_type) + ", "
+            )
         return representation
+
     @staticmethod
     def validated_columns(raw_columns):
         """

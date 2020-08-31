@@ -1,10 +1,11 @@
 from error import InvalidSchema
 import os
 dirname = os.path.dirname(__file__)
-
 import schema
+
+import storage_layer
 class Table:
-    def __init__(self, schema, tablename):
+    def __init__(self, *, schema, tablename):
         self.schema = self.validated_schema(schema)
         self.tablename = tablename.lower()
         self.file = self.new_file()
@@ -23,8 +24,6 @@ class Table:
             return schema.Schema(raw_schema)
 
     def new_file(self):
-        filename = dirname+ "/data/"+ self.tablename + ".stol" #table in croatian
-        f = open(filename, "w")
-        f.write(str(self.schema))
-        f.close()
+        # pass this task to the storage layer
+        filename = storage_layer.storage.Storage.initialize_table_file(tablename=self.tablename, schema=self.schema)
         return filename
