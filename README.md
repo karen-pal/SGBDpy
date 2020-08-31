@@ -14,6 +14,9 @@
 ## Instalación
 
 ```
+git clone https://github.com/karen-pal/SGBDpy.git
+cd SGDBpy
+
 virtualenv env
 . env/bin/activate
 pip install -e .
