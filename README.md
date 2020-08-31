@@ -1,4 +1,7 @@
 # SGDB..py?
+<p align="center">
+  <img width="500" height="300" src="https://i.imgur.com/Tz35u9v.png" alt="tu nuevo SGDB">
+</p>
 
 > WIP
 
