@@ -11,6 +11,14 @@
 * construyendo funcionalidades de abajo hacia arriba.
 * hasta hay un par de tests
 
+## Instalación
+
+```
+virtualenv env
+. env/bin/activate
+pip install -e .
+```
+
 ### To run all tests in directory
 
 ```
