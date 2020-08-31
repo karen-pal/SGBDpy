@@ -23,7 +23,7 @@ class TestTable(unittest.TestCase):
         new_table = table.Table(
             schema=[("id", "int(3)"), ("nOmbre", "string(10)")], tablename="Personas2"
         )
-        f = open(dirname + "/" + new_table.file)
+        f = open(new_table.file)
         content = f.read()
         print(content)
         f.close()

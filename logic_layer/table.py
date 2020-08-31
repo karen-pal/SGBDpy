@@ -1,9 +1,11 @@
 from error import InvalidSchema
 import os
+
 dirname = os.path.dirname(__file__)
 import schema
+from storage_layer import storage
 
-import storage_layer
+
 class Table:
     def __init__(self, *, schema, tablename):
         self.schema = self.validated_schema(schema)
@@ -25,5 +27,7 @@ class Table:
 
     def new_file(self):
         # pass this task to the storage layer
-        filename = storage_layer.storage.Storage.initialize_table_file(tablename=self.tablename, schema=self.schema)
+        filename = storage.Storage.initialize_table_file(
+            tablename=self.tablename, schema=self.schema
+        )
         return filename
