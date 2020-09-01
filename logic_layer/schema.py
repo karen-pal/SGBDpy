@@ -1,5 +1,5 @@
 # table_types int(len) || string(len)
-import column
+from . import column
 
 
 class Schema:

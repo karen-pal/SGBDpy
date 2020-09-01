@@ -19,6 +19,7 @@ cd SGDBpy
 
 virtualenv env
 . env/bin/activate
+pip install click termcolor
 pip install -e .
 ```
 
@@ -36,6 +37,13 @@ cd tests
 python -m unittest <test_file>.py
 ```
 
+## Correr implementación de client layer (WIP)
+
+```
+cd client layer
+python client.py --create_db=True cosoTest
+> initialized database. Storage located in  /my/awesome/path/sgbdpy/storage_layer/data/cosotest
+```
 
 ## Idea
 

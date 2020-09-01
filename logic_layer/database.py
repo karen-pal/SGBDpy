@@ -1,5 +1,5 @@
 import os
-import table
+from . import table
 
 from storage_layer import storage
 

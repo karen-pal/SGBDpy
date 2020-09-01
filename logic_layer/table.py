@@ -2,7 +2,7 @@ from error import InvalidSchema
 import os
 
 dirname = os.path.dirname(__file__)
-import schema
+from . import schema
 from storage_layer import storage
 
 

@@ -1,4 +1,5 @@
 # phys layer stuff
+from termcolor import colored
 import os
 from error import InvalidColumnName
 
@@ -13,8 +14,9 @@ class Storage:
 
     @staticmethod
     def initialize_database(name):
+        print("Got here")
         if not os.path.exists(name):
-            path = "./data/" + name
+            path = dirname+"/data/" + name
             os.mkdir(path)
             print("> initialized database. Storage located in ", path)
         else:
