@@ -17,7 +17,7 @@ class TestTable(unittest.TestCase):
             schema=[("id", "int(3)"), ("nOmbre", "string(10)")], tablename="Personas"
         )
         self.assertEqual(new_table.tablename, "personas")
-        self.assertTrue("/data/personas.stol" in new_table.file)
+        self.assertTrue("/data/personas.stol" in new_table.phys_link)
 
     def test_table_file_content(self):
         new_table = table.Table(
