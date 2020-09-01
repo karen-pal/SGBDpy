@@ -35,3 +35,13 @@ python -m unittest discover .
 cd tests
 python -m unittest <test_file>.py
 ```
+
+
+## Idea
+
+La idea es que esto a la larga tenga una estructura de plugins.
+Es decir, que existan en paralelo distintas implementaciones de la capa física,
+de la capa lógica y de la del cliente y que uno pueda "enchufarlas" de una forma
+"plug and play".
+
+Para esto se tienen que definir e implementar interfaces a respetar intra-layers!
