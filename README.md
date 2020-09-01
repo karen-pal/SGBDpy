@@ -45,3 +45,8 @@ de la capa lógica y de la del cliente y que uno pueda "enchufarlas" de una form
 "plug and play".
 
 Para esto se tienen que definir e implementar interfaces a respetar intra-layers!
+
+
+generate_database
+generate_table
+add_record

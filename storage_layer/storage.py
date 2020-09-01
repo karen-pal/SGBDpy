@@ -2,9 +2,15 @@
 import os
 from error import InvalidColumnName
 
+FILE = "file"
+
 dirname = os.path.dirname(__file__)
 
 class Storage:
+
+    def __init__(self):
+        self.phys_link = FILE
+
     @staticmethod
     def initialize_database(name):
         if not os.path.exists(name):
@@ -15,7 +21,7 @@ class Storage:
             print("Use another database NAME pls")
 
     @staticmethod
-    def initialize_table_file(*, tablename, schema):
+    def initialize_table_phys_link(*, tablename, schema):
         filename = dirname + "/data/" + tablename + ".stol"  # table in croatian
         f = open(filename, "w")
         f.write(str(schema))
