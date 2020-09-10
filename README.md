@@ -40,8 +40,8 @@ python -m unittest <test_file>.py
 ## Correr implementación de client layer (WIP)
 
 ```
-cd client layer
-python client.py --create_db=True cosoTest
+cd client_layer
+python client.py db_script.py
 > initialized database. Storage located in  /my/awesome/path/sgbdpy/storage_layer/data/cosotest
 ```
 
