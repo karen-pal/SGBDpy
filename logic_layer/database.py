@@ -5,9 +5,11 @@ from storage_layer import storage
 
 class Database:
     def __init__(self, *, use=True,name):
+        self.phys_link = storage.Storage()
         self.in_use = use
         self.name = name.lower()
-        self.location = storage.Storage.initialize_database(self.name)
+        self.location = self.phys_link.initialize_database(name = self.name)
+        self.tables = []
 
 
     #def add_table(self, *, table_schema=schema, tablename=tablename):

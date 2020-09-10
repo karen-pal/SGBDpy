@@ -11,27 +11,48 @@ class Storage:
 
     def __init__(self):
         self.phys_link = FILE
+        self.db_in_use = None
+        self.db_path = None
+        self.created_tables = []
 
-    @staticmethod
-    def initialize_database(name):
-        print("Got here")
+    @classmethod
+    def initialize_database(cls,name):
+        print("Initializing database...")
         if not os.path.exists(name):
             path = dirname+"/data/" + name
             os.mkdir(path)
-            print("> initialized database. Storage located in ", path)
+            print(colored(f"> initialized database. Storage located in {path}","green"))
+            cls.db_path = path
+            cls.db_in_use = name
         else:
             print("Use another database NAME pls")
 
-    @staticmethod
-    def initialize_table_phys_link(*, tablename, schema):
-        filename = dirname + "/data/" + tablename + ".stol"  # table in croatian
+    def initialize_table_phys_link(self,*, tablename, schema):
+        print("###########")
+        #print(dir(cls))
+        if not self.db_path:
+            print(colored("No db configured as in use","red"))
+            return
+        for elem in self.created_tables:
+            if tablename in elem.values():
+                print(colored(f"table {tablename} already exists","red"))
+                return
+
+        filename = self.db_path + tablename + ".stol"  # table in croatian
         f = open(filename, "w")
         f.write(str(schema))
         f.close()
+        self.created_tables.append({"tablename":tablename,"file":filename})
+        print("> initialized table ", tablename)
         return filename
 
-    # def add_row(table, data):
-    #    table.file.phys_write(data.format_data(table.schema))
+    @staticmethod
+    def add_row_to_table(*,table, data, phys_link):
+        f = open(phys_link,"a")
+        for elem in data:
+            f.write(elem)
+        f.close()
+        print(f">wrote data in {table}")
 
     # def add_column(table, column_name, column_type):
     #    new_table = Table(

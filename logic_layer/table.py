@@ -7,10 +7,11 @@ from storage_layer import storage
 
 
 class Table:
-    def __init__(self, *, schema, tablename):
+    def __init__(self, *, schema, tablename, db):
         self.schema = self.validated_schema(schema)
         self.tablename = tablename.lower()
         self.phys_link = self.create_phys_link() #self.new_file()
+        self.db = db
 
     @staticmethod
     def validated_schema(raw_schema):
@@ -33,3 +34,9 @@ class Table:
             tablename=self.tablename, schema=self.schema
         )
         return filename
+
+
+    def add_row(self,data):
+        storage.Storage.add_row_to_table(
+        table=self.tablename, phys_link = self.phys_link, data=data
+        )
